@@ -1,13 +1,26 @@
+require('dotenv').config(); // Load .env variables
+
 const express = require('express');
 const app = express();
-const port = 3000;
+const mongoose = require('mongoose');
+const mongoUrl = process.env.MONGODB_URL
 
-// A simple route
+
+
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || 'localhost';
+
+
+mongoose.connect(mongoUrl, { useNewUrlParse: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+
+
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on http://${host}:${port}`);
 });
