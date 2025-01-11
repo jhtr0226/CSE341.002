@@ -20,6 +20,7 @@
   "homepage": "https://github.com/jhtr0226/CSE341.002#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
   "devDependencies": {
