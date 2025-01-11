@@ -1,0 +1,24 @@
+{
+  "name": "cse341.002",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhtr0226/CSE341.002.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jhtr0226/CSE341.002/issues"
+  },
+  "homepage": "https://github.com/jhtr0226/CSE341.002#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
