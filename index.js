@@ -3,6 +3,8 @@ require('dotenv').config(); // Load .env variables
 const express = require('express');
 const connectDB = require('./database/connect'); 
 const contactsRoute = require('./routes/contactsRoute');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
 // API Routes
 //app.use('/api', contactsRoute);
 app.use(contactsRoute);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); //swagger route
 
 // Start Server
 app.listen(port, () => {
