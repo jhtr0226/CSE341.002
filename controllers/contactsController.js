@@ -13,20 +13,6 @@ exports.getAllContacts = async (req, res) => {
 };
 
 // Get a single contact by ID
-/*
-exports.getContactById = async (req, res) => {
-  try {
-    const contact = await Contact.findById(req.params.id);
-    if (!contact) {
-      return res.status(404).json({ error: 'Contact not found' });
-    }
-    res.json(contact);
-  } catch (error) {
-    console.error('Error fetching contact:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-};
-*/
 exports.getContactById = async (req, res) => {
   const id = req.params.id;
 
@@ -46,7 +32,6 @@ exports.getContactById = async (req, res) => {
   }
 };
 
-
 // Create a new contact
 exports.createContact = async (req, res) => {
   try {
@@ -60,20 +45,6 @@ exports.createContact = async (req, res) => {
 };
 
 // Update a contact
-/*
-exports.updateContact = async (req, res) => {
-  try {
-    const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!contact) {
-      return res.status(404).json({ error: 'Contact not found' });
-    }
-    res.json(contact);
-  } catch (error) {
-    console.error('Error updating contact:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-};*/
-
 exports.updateContact = async (req, res) => {
   const id = req.params.id;
 
@@ -94,20 +65,6 @@ exports.updateContact = async (req, res) => {
 };
 
 // Delete a contact
-/*
-exports.deleteContact = async (req, res) => {
-  try {
-    const contact = await Contact.findByIdAndDelete(req.params.id);
-    if (!contact) {
-      return res.status(404).json({ error: 'Contact not found' });
-    }
-    res.status(204).send();
-  } catch (error) {
-    console.error('Error deleting contact:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-};*/
-
 exports.deleteContact = async (req, res) => {
   const id = req.params.id;
 
