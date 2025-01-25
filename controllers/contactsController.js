@@ -1,5 +1,19 @@
 const Contact = require('../models/contactsModel');
 const mongoose = require('mongoose');
+const { body, validationsResult } = require('express-validator');
+  
+
+//validation
+exports.validateContact = [
+  body('firstName').isAlpha().withMessage('First name must only contain letters').notEmpty().withMessage('First name is required'),
+  body('lastName').isAlpha().withMessage('Last name must only contain letters').notEmpty().withMessage('Last name is required'),
+  body('email').isEmail().withMessage('Invalid email address'),
+  body('favoriteColor').notEmpty().withMessage('Favorite color is required'),
+  body('birthday').isISO8601().withMessage('Invalid date format'),
+];
+
+
+
 
 // Get all contacts
 exports.getAllContacts = async (req, res) => {

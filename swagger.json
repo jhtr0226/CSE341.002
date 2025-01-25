@@ -7,8 +7,10 @@
   },
   "servers": [
     {
-      "url": "https://cse341-002.onrender.com"},
-      {"url": "http://localhost:3000"
+      "url": "https://cse341-002.onrender.com"
+    },
+    {
+      "url": "http://localhost:3000"
     }
   ],
   "paths": {
@@ -16,9 +18,10 @@
       "get": {
         "summary": "Get all contacts",
         "responses": {
-          "200": {
-            "description": "A list of contacts"
-          }
+          "200": { "description": "A list of contacts" },
+          "400": { "description": "Invalid ID format" },
+          "404": { "description": "Contact not found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "post": {
@@ -42,9 +45,9 @@
           }
         },
         "responses": {
-          "201": {
-            "description": "Contact created"
-          }
+          "201": { "description": "Contact created" },
+          "400": { "description": "Invalid input format" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
@@ -63,7 +66,8 @@
         "responses": {
           "200": { "description": "Contact details" },
           "400": { "description": "Invalid ID format" },
-          "404": { "description": "Contact not found" }
+          "404": { "description": "Contact not found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "put": {
@@ -74,9 +78,7 @@
             "in": "path",
             "required": true,
             "description": "Contact ID",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
         "requestBody": {
@@ -90,16 +92,17 @@
                   "lastName": { "type": "string" },
                   "favoriteColor": { "type": "string" },
                   "birthday": { "type": "string", "format": "date" },
-                  "email": { "type": "string" }
+                  "email": { "type": "string", "format": "email" }
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Contact updated"
-          }
+          "200": { "description": "Contact updated" },
+          "400": { "description": "Invalid input format" },
+          "404": { "description": "Contact not found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "delete": {
@@ -114,9 +117,13 @@
           }
         ],
         "responses": {
-          "204": { "description": "Contact deleted" }
+          "204": { "description": "Contact deleted" },
+          "400": { "description": "Invalid ID format" },
+          "404": { "description": "Contact not found" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     }
   }
 }
+
